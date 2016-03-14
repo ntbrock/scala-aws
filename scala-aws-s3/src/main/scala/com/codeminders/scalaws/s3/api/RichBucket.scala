@@ -91,7 +91,7 @@ class RichBucket(client: HTTPClient, val bucket: Bucket) {
       true
     } catch {
       case e: AmazonServiceException => if (e.statusCode == 404) false else throw e
-      case e => throw e
+      case e: Throwable => throw e
     }
   }
 

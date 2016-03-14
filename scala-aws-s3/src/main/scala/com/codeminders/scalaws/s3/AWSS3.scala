@@ -50,7 +50,7 @@ class AWSS3(config: ClientConfiguration) extends ApacheHTTPClient(config) with T
 	    true
     } catch {
       case e: AmazonServiceException => if(e.statusCode == 404) false else throw e
-      case e => throw e
+      case e: Throwable => throw e
     }
   }
   

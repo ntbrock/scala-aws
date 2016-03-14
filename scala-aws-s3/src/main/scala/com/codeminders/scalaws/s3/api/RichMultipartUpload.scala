@@ -79,7 +79,7 @@ class RichMultipartUpload(client: HTTPClient, bucket: Bucket, key: Key) extends 
     try {
       complete
     } catch {
-      case e => {
+      case e:Throwable => {
         abort
         throw e
       }
